@@ -1,10 +1,10 @@
 SQL-At-A-GLANCE
 =================
 
-This Self-Study is prepared for who want to learn SQL with the basic knowledge of programing.
+This Self-Study is prepared for whom want to learn SQL with the basic knowledge of programing.
 
 Maintainer(s):
-* [Leila Alimehr](https://carpentries.org/instructors/#remram44)
-* [Saeid Amiri](https://carpentries.org/instructors/#henrykironde)
+* [Leila Alimehr](https://github.com/leilaalimehr)
+* [Saeid Amiri](https://saeidamiri1.github.io/)
 
 ##### ***It is under construction***
