@@ -78,7 +78,7 @@ It shows the database has two tables,
 -  expenses: the expenses of trip done by employees.<br/>   
   <img src="https://github.com/saeidamiri1/SQL/blob/master/image/Person.png" width="160" height="100">
 - employees: the list of employees in a company.<br/>
-<img src="/Volumes/F/progwr/sql/image/expenses.png" width="290" height="100">
+<img src="https://github.com/saeidamiri1/SQL/blob/master/image/expenses.png" width="290" height="100">
 
 Tables in the database are often related to each other using a unique identifier, which often called key. The identifiers store in a key column or common columns. For the ```practice.db``` database, the employee `id` does this role.
 
