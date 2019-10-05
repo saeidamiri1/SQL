@@ -18,19 +18,19 @@ Here we provide questions related to the topics we illustrated in [SQL at a glan
 it is related to a historical meteorological data. This database has four tables,
 
 -  Person: people who took readings.<br/>   
-  <img src="/Volumes/F/progwr/sql/image/Person.png" width="300" height="200">
+  <img src="https://github.com/saeidamiri1/SQL/blob/master/image/Person.png" width="300" height="200">
 
 - Site: locations where readings were taken.<br/>
-<img src="/Volumes/F/progwr/sql/image/Site.png" width="270" height="200"> 
+<img src="https://github.com/saeidamiri1/SQL/blob/master/image/Site.png" width="270" height="200"> 
 
 - Visited: it includes when readings were taken at specific sites.<br/>
-<img src="/Volumes/F/progwr/sql/image/Visited.png" width="300" height="200">
+<img src="https://github.com/saeidamiri1/SQL/blob/master/image/Visited.png" width="300" height="200">
 
 - Survey: It includes the actual readings. The field quant is short for quantitative and indicates what is being measured. Values are rad, sal, and temp referring to ‘radiation’, ‘salinity’ and ‘temperature’, respectively.<br/>
-<img src="/Volumes/F/progwr/sql/image/Survey.png" width="300" height="200">
+<img src="https://github.com/saeidamiri1/SQL/blob/master/image/Survey.png" width="300" height="200">
 
 Tables in database are often related to each other using an index variable or common variables. For this database, ```survey.db```, the relation between tables are illustrated in the following figure.<br/>
-<img src="/Volumes/F/progwr/sql/image/relation.png" width="300" height="200">
+<img src="https://github.com/saeidamiri1/SQL/blob/master/image/relation.png" width="300" height="200">
 
 ## Challenge 1
 ### Questions:
