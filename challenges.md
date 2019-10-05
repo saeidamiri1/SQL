@@ -14,7 +14,7 @@
 - [Challenge 12](#challenge-12)
 
 ## Introduction
-Here we provide questions related to the topics we illustrated in [SQL at a glance]((SQL.md)). To work on questions, first download the [survey.db](https://github.com/saeidamiri1/SQL/blob/master/survey.db), this data is used in [sw](https://swcarpentry.github.io/sql-novice-survey/) to describe sqlite3, 
+Here we provide questions related to the topics we illustrated in [SQL at a glance](SQL.md). To work on questions, first download the [survey.db](https://github.com/saeidamiri1/SQL/blob/master/survey.db) file, this data is used in [sw](https://swcarpentry.github.io/sql-novice-survey/) to describe sqlite3, 
 it is related to a historical meteorological data. This database has four tables,
 
 -  Person: people who took readings.<br/>   
@@ -34,18 +34,18 @@ Tables in database are often related to each other using an index variable or co
 
 ## Challenge 1
 ### Questions:
- - Load the `sutvey.db` in sqlite3.
+ - Load the `sutvey.db` database in sqlite3.
  - How many tables are in this database?  What are the formats of column of tables?
 
 ### Solutions: 
 ```{sql, echo = FALSE, message = FALSE}
-Leila-MacBook:~ user1$ sqlite3 survey.db
+SAM-MacBook:~ user1$ sqlite3 survey.db
 SQLite version 3.24.0 2018-06-04 14:10:15
 Enter ".help" for usage hints.
 sqlite>
 ```
 
-orit can be  loaded from the inside of `sqlite3` 
+Also it can be loaded from the inside of `sqlite3` 
 ```{sql, echo = FALSE, message = FALSE}
 sqlite> .open  survey.db
 ```
@@ -64,7 +64,7 @@ CREATE TABLE Survey (taken integer, person text, quant text, reading real);
 
 ## Challenge 2
 ### Questions:
- - Create two tables `NewPerson`  and `NewSite`, 
+ - Write a query to create two tables `NewPerson`  and `NewSite`, 
 add variables (`id text`, `personal text`, `family text`) (`name text`, `lat real`, `long real`) to them, respectivley. 
 
 ### Solutions: 
@@ -75,7 +75,7 @@ CREATE TABLE NewSite(name text, lat real, long real);
 
 ## Challenge 3
 ### Questions:
-- Select column family and personal from the table `Person`. 
+- Write a query to select column family and personal from the table `Person`. 
 
 ### Solutions: 
 ```{sql, echo = FALSE, message = FALSE}
@@ -84,12 +84,12 @@ SELECT family, personal FROM Person;
 
 ## Challenge 4
 ### Questions:
-- Cosider Table `Site`, add `('DR-1', -49.85, -128.57)` to this table.
-- Consider Table `Site`, update `lat=-47.87` and `long=-122.40` for `name='MSK-4'`. 
-- Delete `id='MSK-4'` from `Site`. 
-- Create a table, call it `JustLatLong`,  and add columns `(lat text, long text)`. Then 
+- Cosider Table `Site`, write a query to add `('DR-1', -49.85, -128.57)` to this table.
+- Consider Table `Site`, write a query to  update `lat=-47.87` and `long=-122.40` for `name='MSK-4'`. 
+- Write a query to  delete `id='MSK-4'` from `Site`. 
+- Write a query to create a table, call it `JustLatLong`,  and add columns `(lat text, long text)`. Then 
 insert `lat`, `long` from  `Site` to `JustLatLong`. 
-- Delete table `JustLatLong `that you just created. 
+- Write a query to delete table `JustLatLong `that you just created. 
 - Write a query to replace all ```null``` in ```Survey.person``` with the string ```unknown```.
 
 
@@ -106,8 +106,8 @@ UPDATE Survey SET person = 'unknown' WHERE person IS NULL;
 
 ## Challenge 5
 ### Questions:
--  Consider the table of `Survey` and remove  the duplicates from `quant`. 
--  Consider `taken`, `person`, `quant` from  `Survey`,  order them according  ascending order `taken` , descending order `person`.
+-  Consider the table of `Survey`, write a query to remove  the duplicates from `quant`. 
+-  Consider `taken`, `person`, `quant` from  `Survey`,  write a query to order them according ascending order `taken` , descending order `person`.
 
 ### Solutions: 
 ```{sql, echo = FALSE, message = FALSE}
@@ -117,8 +117,8 @@ SELECT taken, person, quant FROM Survey ORDER BY taken ASC, person DESC;
 
 ## Challenge 6
 ### Questions:
-- Select values for  `site='DR-1'` in `Visited`.
-- Select values `site='DR-1'` and  `dated < '1930-01-01'` in `Visited`.
+- Write a query to select records that `site='DR-1'` in `Visited`.
+- Write a query to select records that `site='DR-1'` and  `dated < '1930-01-01'` in `Visited`.
 - Write a query to select records that `site` start with `DR` in `Visited`.
 
 ### Solutions: 
@@ -128,10 +128,9 @@ SELECT * FROM Visited WHERE site='DR-1' AND dated < '1930-01-01';
 SELECT * FROM Visited WHERE site LIKE 'DR%';
 ```
 
-
 ## Challenge 7
 ### Questions:
--  Calulate `1.05*taken`, `round(5*(reading-32)/9,2)` from  `Survey` for  `quant='temp'`
+-  Write a query to calulate `1.05*taken`, `round(5*(reading-32)/9,2)` from  `Survey` for  `quant='temp'`
 ### Solutions: 
 ```{sql, echo = FALSE, message = FALSE}
 SELCET 1.05*taken, round(5*(reading-32)/9,2) FROM Survey WHERE quant='temp';
@@ -139,7 +138,7 @@ SELCET 1.05*taken, round(5*(reading-32)/9,2) FROM Survey WHERE quant='temp';
 
 ## Challenge 8
 ### Questions:
-- Generate `family, personal` from `Person`
+- Write a query to generate `family, personal` from `Person`
 - Write a query to generate union of  `Person` where `id='dyer'` and `id='roe'`.
 - The following query uses  ```instr(site, '-') - 1)``` that find the index of ```-``` minus one to drop ```-```. `instr(X, Y)` clause returns the 1-based index of the first occurrence of string Y in string X, or 0 if Y does not exist in X. Write a query delete ```-``` from  `site` in `Visited`. 
 
