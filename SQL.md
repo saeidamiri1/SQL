@@ -76,7 +76,7 @@ CREATE TABLE employees (id INTEGER, name TEXT, family TEXT);
 
 It shows the database has two tables,
 -  expenses: the expenses of trip done by employees.<br/>   
-  <img src="/Volumes/F/progwr/sql/image/employee.png" width="160" height="100">
+  <img src="/SQL/image/employee.png" width="160" height="100">
 - employees: the list of employees in a company.<br/>
 <img src="/Volumes/F/progwr/sql/image/expenses.png" width="290" height="100">
 
