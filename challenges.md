@@ -14,7 +14,7 @@
 - [Challenge 12](#challenge-12)
 
 ## Introduction
-Here we provide questions related to the topics we illustrated in [SQL at a glance](SQL.md). To work on questions, first download the [survey.db](https://github.com/saeidamiri1/SQL/blob/master/survey.db) file, this data is used in [sw](https://swcarpentry.github.io/sql-novice-survey/) to describe sqlite3, 
+Here we provide questions related to the topics we illustrated in [SQL at a glance](SQL.md). To work on questions, first download the [survey.db](https://github.com/saeidamiri1/SQL/blob/master/survey.db) database, this data is used in [sw](https://swcarpentry.github.io/sql-novice-survey/) to describe sqlite3, 
 it is related to a historical meteorological data. This database has four tables,
 
 -  Person: people who took readings.<br/>   
@@ -23,18 +23,18 @@ it is related to a historical meteorological data. This database has four tables
 - Site: locations where readings were taken.<br/>
 <img src="https://github.com/saeidamiri1/SQL/blob/master/image/Site.png" width="270" height="200"> 
 
-- Visited: it includes when readings were taken at specific sites.<br/>
+- Visited: when readings were taken at specific sites.<br/>
 <img src="https://github.com/saeidamiri1/SQL/blob/master/image/Visited.png" width="300" height="200">
 
-- Survey: It includes the actual readings. The field quant is short for quantitative and indicates what is being measured. Values are rad, sal, and temp referring to ‘radiation’, ‘salinity’ and ‘temperature’, respectively.<br/>
+- Survey: it includes the actual readings. The field quant is short for quantitative and indicates what is being measured. Values are rad, sal, and temp referring to ‘radiation’, ‘salinity’ and ‘temperature’, respectively.<br/>
 <img src="https://github.com/saeidamiri1/SQL/blob/master/image/Survey.png" width="300" height="200">
 
-Tables in database are often related to each other using an index variable or common variables. For this database, ```survey.db```, the relation between tables are illustrated in the following figure.<br/>
+Tables in database are often related to each other using an index column or common columns. For this database, ```survey.db```, the relation between tables are illustrated in the following figure.<br/>
 <img src="https://github.com/saeidamiri1/SQL/blob/master/image/relation.png" width="300" height="200">
 
 ## Challenge 1
 ### Questions:
- - Load the `sutvey.db` database in sqlite3.
+ - Load the `sutvey.db` database in `sqlite3`.
  - How many tables are in this database?  What are the formats of column of tables?
 
 ### Solutions: 
@@ -45,7 +45,7 @@ Enter ".help" for usage hints.
 sqlite>
 ```
 
-Also it can be loaded from the inside of `sqlite3` 
+Also it can be loaded from inside of `sqlite3` 
 ```{sql, echo = FALSE, message = FALSE}
 sqlite> .open  survey.db
 ```
@@ -64,8 +64,8 @@ CREATE TABLE Survey (taken integer, person text, quant text, reading real);
 
 ## Challenge 2
 ### Questions:
- - Write a query to create two tables `NewPerson`  and `NewSite`, 
-add variables (`id text`, `personal text`, `family text`) (`name text`, `lat real`, `long real`) to them, respectivley. 
+- Write a query to create two tables `NewPerson`  and `NewSite`, 
+add the  (`id text`, `personal text`, `family text`)  and (`name text`, `lat real`, `long real`) columns to them, respectivley. 
 
 ### Solutions: 
 ```{sql, echo = FALSE, message = FALSE}
@@ -172,7 +172,7 @@ SELECT * FROM Survey WHERE quant = 'sal' AND person != 'lake';
 - Rewrite previous query by group and order `person` and  `quant`.
 
 ### Solutions: 
-You can retrieves the Statistical summary of variable for other variables, the following scripts generate mean and min of variable reading. 
+You can retrieves the Statistical summary of column for other columns, the following scripts generate mean and min of column reading. 
 ```{sql, echo = FALSE, message = FALSE}
 SELECT avg(reading) FROM Survey;
 SELECT avg(reading) FROM Survey WHERE quant = 'sal';

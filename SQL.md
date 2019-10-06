@@ -16,9 +16,9 @@ This text is a self-study to learn how use SQL to work with the databases.
   - [Challenge 5](#challenge-5)
 - [Filtering](#filtering)
   - [Challenge 6](#challenge-6)
-- [Calculation on variable](#calculation-on-variable)
+- [Calculation on column](#calculation-on-column)
   - [Challenge 7](#challenge-7)
-- [Combining variables](#combining-variables)
+- [Combining columns](#combining-columns)
   - [Challenge 8](#challenge-8)
 - [Missing Data](#missing-data)
   - [Challenge 9](#challenge-9)
@@ -91,7 +91,7 @@ Go to [Challenge 1](challenges.md\#challenge-1) and answer the questions.
 --------
 
 ## Create Database
-As mentioned a collection of tables constructs a database, to create a table type ```CREATE TABLE NAME_OF _TABLES(VARIABLES)```.  The following script shows how to create a table `Newemployew`:
+As mentioned a collection of tables constructs a database, to create a table type ```CREATE TABLE NAME_OF _TABLES(COLUMNS)```.  The following script shows how to create a table `Newemployew`:
 ```{sql, echo = FALSE, message = FALSE}
 CREATE TABLE Newemployee(id integer, name text, family text, contract text);
 ```
@@ -120,7 +120,7 @@ Go to [Challenge 2](challenges.md\#challenge-2)  and answer the questions.
 
 ## Selecting Data
 To see the records of table, type
-```SELECT names_of_variables FROM Name_of_table;```
+```SELECT names_of_columns FROM Name_of_table;```
 
 ```{sql, echo = FALSE, message = FALSE}
 SELECT family, id FROM employees;
@@ -237,7 +237,7 @@ Go to [Challenge 6](challenges.md\#challenge-6) and answer the questions.
 --------
 --------
 
-## Calculation on variable
+## Calculation on column
 Simple arithmetic can be done in sqlite3 as well,
 ```{sql, echo = FALSE, message = FALSE}
 SELECT 4+2;
@@ -247,7 +247,7 @@ SELECT 4*2;
 SELECT 4/2;
 ```
 
-Calculation can be done on the selected variables.
+Calculation can be done on the selected columns.
 ```{sql, echo = FALSE, message = FALSE}
 SELECT 1.02*travel_expense FROM expenses WHERE automobile_expense<200;
 SELECT travel_expense, round(4*(travel_expense-100)/8,2) FROM expenses WHERE id IN (1167, 5766);
@@ -261,8 +261,8 @@ Go to [Challenge 7](challenges.md\#challenge-7)  and answer the questions.
 --------
 --------
 
-## Combining variables
-One can combine variables using ```||```,
+## Combining columns
+One can combine columns using ```||```,
 ```{sql, echo = FALSE, message = FALSE}
 SELECT name || family FROM employees;
 SELECT name || ' ' || family FROM employees;
@@ -277,7 +277,7 @@ SELECT * FROM employees WHERE name='Saeid' UNION SELECT * FROM employees WHERE n
 
 The UNION drops the duplicate, and actually run DISTINCT on it as default. If there is not a duplicate in output of two query, use ```UNION ALL``` which is faster than UNION.
 
-To clean identifier, one can use ```substr(variable, s, l)```, it cuts record from starting point ```s``` for length ```l```.
+To clean identifier, one can use ```substr(column, s, l)```, it cuts record from starting point ```s``` for length ```l```.
 
 ```{sql, echo = FALSE, message = FALSE}
 SELECT DISTINCT substr(id, 1, 3) AS Majoremployee FROM employees;
@@ -308,14 +308,14 @@ Go to [Challenge 9](challenges.md\#challenge-9)  and answer the questions.
 --------
 
 ## Aggregation
-You can retrieves the Statistical summary of variable for other variables, the following scripts generate mean and min of variable reading.
+You can retrieves the Statistical summary of column for other vcolumns, the following scripts generate mean and min of column reading.
 ```{sql, echo = FALSE, message = FALSE}
 SELECT avg(travel_expense) FROM expenses;
 SELECT avg(travel_expense) FROM expenses WHERE id = 8418;
 SELECT min(travel_expense) FROM expenses WHERE id = 8418;
 ```
 
-Sometimes should find a summary statistics of variable for  another variables  
+Sometimes should find a summary statistics of column for  another columns  
 ```{sql, echo = FALSE, message = FALSE}
 SELECT id, count(*) FROM expenses  WHERE  id = 8418 AND travel_expense <= 2000;
 SELECT id, count(*),max(travel_expense), sum(travel_expense) FROM expenses;
